@@ -1,12 +1,13 @@
 from weapon import Weapon
+from dino import Dinosaur
 
 class Robot:
     def __init__(self, name, health):
         self.name = name
         self.health = health
-        weapon_one = Weapon("Sword", 10)
-        weapon_two = Weapon("laser", 15)
-        weapon_three = Weapon("bombs", 30)
+        self.weapon_one = Weapon("Sword", 10)
+        self.weapon_two = Weapon("Laser", 15)
+        self.weapon_three = Weapon("Mortar", 30)
         #self.storage = ""
         #self.weapon = ""
         #self.weapon_choice()
@@ -24,3 +25,5 @@ class Robot:
     
     def attack(self, dinosaur): # in battlefield you should be able to code self.fleet.robot_one.attack(dino_one)
         dinosaur.health -= self.weapon_one.attack
+        print(f'Dinosaur {dinosaur.name} was attacted by robot {self.name} and did {self.weapon_one.attack} damge')
+        print(f'{dinosaur.name} has {dinosaur.health} remaining health')
