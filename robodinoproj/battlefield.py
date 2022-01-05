@@ -21,8 +21,11 @@ class Battlefield:
     def battle(self):
         while len(self.fleet.robots) > 0 and len(self.herd.dinos) > 0:
             self.robot_turn()
-            self.dino_turn()
-        pass
+            if len(self.herd.dinos) == 0:
+                pass
+            else:
+                self.dino_turn()
+        
 
     def dino_turn(self):
         self.show_dino_options()
@@ -57,6 +60,12 @@ class Battlefield:
         pass
 
     def show_winners(self):# if robo list length = 0 then dino wins else print robots win
+        if len(self.fleet.robots) == 0:
+            print(f"")
+            print(f"The Dinosaur Herd WINS!")
+        else:
+            print("")
+            print(f"The Robot Fleet WINS!")
         print(f"battle over")
         pass
 
