@@ -10,6 +10,7 @@ class Battlefield:
     def run_game(self): # use run_game to call your other methods you create in battlefield
         self.display_welcome()
         self.battle()
+        self.show_winners()
         pass
 
     def display_welcome(self):
@@ -18,21 +19,9 @@ class Battlefield:
     
 
     def battle(self):
-        game_end = False
-        round_counter = 1
-        while game_end == False:
-            if self.herd.dinos.health or self.fleet.robots.health >= 1:
-                self.robot_turn()
-                self.dino_turn()
-                print(f"Round {round_counter} is over")
-                round_counter = +1
-                return
-            
-            elif self.herd.dinos.health or self.fleet.robots.health <= 0:
-                game_end == True
-                self.show_winners()
-                break
-
+        while len(self.fleet.robots) > 0 and len(self.herd.dinos) > 0:
+            self.robot_turn()
+            self.dino_turn()
         pass
 
     def dino_turn(self):
@@ -40,7 +29,7 @@ class Battlefield:
         dino_index = int(input("Select a dinosaur to attack with"))
         self.robot_show_options()
         robot_index = int(input("Select a robot to attack"))
-        self.herd.dinos[dino_index].attack(self.fleet.robots[robot_index])
+        self.herd.dinos[dino_index].attack_move(self.fleet.robots[robot_index], self.fleet.robots)
         pass
 
     def robot_turn(self):
@@ -48,7 +37,7 @@ class Battlefield:
         robot_index = int(input("Select a robot to attack with"))
         self.show_dino_options()
         dino_index = int(input("Select a dino to attack"))
-        self.fleet.robots[robot_index].attack(self.herd.dinos[dino_index])
+        self.fleet.robots[robot_index].attack(self.herd.dinos[dino_index], self.herd.dinos)
         pass
 
     def show_dino_options(self):
@@ -67,7 +56,7 @@ class Battlefield:
             index += 1
         pass
 
-    def show_winners(self):
+    def show_winners(self):# if robo list length = 0 then dino wins else print robots win
         print(f"battle over")
         pass
 

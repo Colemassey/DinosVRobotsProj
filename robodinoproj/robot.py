@@ -23,7 +23,11 @@ class Robot:
         #print(f"{weapon.name} has been added to storage")
         #pass
     
-    def attack(self, dinosaur): # in battlefield you should be able to code self.fleet.robot_one.attack(dino_one)
+    def attack(self, dinosaur, dino_list): # in battlefield you should be able to code self.fleet.robot_one.attack(dino_one)
         dinosaur.health -= self.weapon_one.attack
-        print(f'Dinosaur {dinosaur.name} was attacted by robot {self.name} and did {self.weapon_one.attack} damge')
+        print()
+        print(f'Dinosaur {dinosaur.name} was attacked by robot {self.name} and did {self.weapon_one.attack} damge')
         print(f'{dinosaur.name} has {dinosaur.health} remaining health')
+        print()
+        if dinosaur.health <= 0:
+            dino_list.remove(dinosaur)
