@@ -7,7 +7,7 @@ class Battlefield:
         self.fleet = Fleet()
         self.herd = Herd()
 
-    def run_game(self): # use run_game to call your other methods you create in battlefield
+    def run_game(self):
         self.display_welcome()
         self.battle()
         self.show_winners()

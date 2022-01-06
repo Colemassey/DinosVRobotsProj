@@ -6,7 +6,7 @@ class Herd:
         self.dinos = []
         self.create_herd()
 
-    def create_herd(self): #dino needs name, health, and attack passed in
+    def create_herd(self): 
         dinosaur_one = Dinosaur("Godzilla", 150, 50)
         dinosaur_two = Dinosaur("Barney", 100, 75)
         dinosaur_three = Dinosaur("Bulbasaur", 75, 100)

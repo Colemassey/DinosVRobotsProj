@@ -6,7 +6,7 @@ class Fleet:
         self.robots = []
         self.create_fleet()
 
-    def create_fleet(self): #robot needs name and health passed in
+    def create_fleet(self):
         robot_one = Robot("WALL-E", 50)
         robot_two = Robot("Terminator", 100)
         robot_three = Robot("Baymax", 75)
